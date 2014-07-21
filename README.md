@@ -1,0 +1,4 @@
+smashing-article
+================
+
+Smashing !
