@@ -1,0 +1,26 @@
+{
+  "name": "smashing-article",
+  "version": "0.0.0",
+  "description": "smashing-article ================",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "~1.3.8",
+    "karma": "~0.12.17",
+    "karma-phantomjs-launcher": "~0.1.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "karma-mocha": "~0.1.6",
+    "karma-sinon-chai": "~0.2.0",
+    "karma-coverage": "~0.2.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github-ipsum.com/lorem--ipsum/smashing-article.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
