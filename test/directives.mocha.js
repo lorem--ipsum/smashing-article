@@ -2,9 +2,9 @@ describe('directives', function() {
 
   beforeEach(module('myDirectives'));
 
-  var element = undefined;
-  var outerScope = undefined;
-  var innerScope = undefined;
+  var element;
+  var outerScope;
+  var innerScope;
 
   beforeEach(inject(function($rootScope, $compile) {
     element = angular.element('<super-button label="myLabel" on-click="myCallback()"></super-button>');

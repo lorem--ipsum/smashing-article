@@ -1,7 +1,7 @@
 describe('saving a document', function() {
 
-  var scope = undefined;
-  var ctrl = undefined;
+  var scope;
+  var ctrl;
 
   beforeEach(module('textEditor'));
 

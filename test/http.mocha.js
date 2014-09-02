@@ -2,7 +2,7 @@ describe('http', function() {
 
   beforeEach(module('factories_2'));
 
-  var chimp = undefined;
+  var chimp;
 
   beforeEach(inject(function(_chimp_) {
     chimp = _chimp_;

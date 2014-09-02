@@ -2,7 +2,7 @@ describe('factories', function() {
 
   beforeEach(module('factories'));
 
-  var chimp = undefined;
+  var chimp;
 
   beforeEach(inject(function(_chimp_, $log) {
     chimp = _chimp_;

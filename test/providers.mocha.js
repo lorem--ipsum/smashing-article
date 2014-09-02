@@ -1,5 +1,5 @@
 describe('coffee maker provider', function() {
-  var coffeeProvider = undefined;
+  var coffeeProvider;
 
   beforeEach(function() {
     // Here we create a fake module just to intercept and store the provider
