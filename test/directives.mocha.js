@@ -25,16 +25,22 @@ describe('directives', function() {
     expect(element[0].children[0].innerHTML).to.equal('Hello world.');
   });
 
-  it('should call the proper callback when clicked', function() {
-    var mySpy = sinon.spy();
-    outerScope.$apply(function() {
-      outerScope.myCallback = mySpy;
+  describe('click callback', function() {
+    var mySpy;
+
+    beforeEach(function() {
+      mySpy = sinon.spy();
+      outerScope.$apply(function() {
+        outerScope.myCallback = mySpy;
+      });
     });
 
-    var event = document.createEvent("MouseEvent");
-    event.initMouseEvent("click", true, true);
-    element[0].children[1].dispatchEvent(event);
+    it('should be called when the directive is clicked', function() {
+      var event = document.createEvent("MouseEvent");
+      event.initMouseEvent("click", true, true);
+      element[0].children[1].dispatchEvent(event);
 
-    expect(mySpy.callCount).to.equal(1);
+      expect(mySpy.callCount).to.equal(1);
+    });
   });
 });

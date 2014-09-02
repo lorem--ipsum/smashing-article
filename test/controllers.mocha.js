@@ -20,7 +20,7 @@ describe('saving a document', function() {
       // A call to $apply() must be performed, otherwise the
       // scope's watchers won't be ran through.
       scope.$apply(function () {
-      scope.document.text += ' And some more text';
+        scope.document.text += ' And some more text';
       });
 
       expect(scope.state.documentSaved).to.equal(false);
