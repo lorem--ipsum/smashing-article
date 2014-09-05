@@ -1,15 +1,15 @@
-angular.module('timeouts', [])
+angular.module('timeouts', [])
 
-.factory('waiter', ['$timeout', function($timeout) {
-  return {
-    brieflySetSomethingToTrue: function(target, property) {
-      var oldValue = target[property];
+.factory('waiter', ['$timeout', function($timeout) {
+  return {
+    brieflySetSomethingToTrue: function(target, property) {
+      var oldValue = target[property];
 
-      target[property] = true;
+      target[property] = true;
 
-      $timeout(function() {
-        target[property] = oldValue;
-      }, 100);
-    }
-  };
+      $timeout(function() {
+        target[property] = oldValue;
+      }, 100);
+    }
+  };
 }]);

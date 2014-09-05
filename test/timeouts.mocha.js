@@ -1,22 +1,22 @@
-describe('timeouts', function() {
+describe('timeouts', function() {
 
-  beforeEach(module('timeouts'));
+  beforeEach(module('timeouts'));
 
-  var waiter;
+  var waiter;
 
-  beforeEach(inject(function(_waiter_) {
-    waiter = _waiter_;
-  }));
+  beforeEach(inject(function(_waiter_) {
+    waiter = _waiter_;
+  }));
 
-  it('should briefly set somethign to true', inject(function($timeout) {
-    var anyObject = {foo: 42};
+  it('should briefly set somethign to true', inject(function($timeout) {
+    var anyObject = {foo: 42};
 
-    waiter.brieflySetSomethingToTrue(anyObject, 'foo');
+    waiter.brieflySetSomethingToTrue(anyObject, 'foo');
 
-    expect(anyObject.foo).to.equal(true);
+    expect(anyObject.foo).to.equal(true);
 
-    $timeout.flush();
+    $timeout.flush();
 
-    expect(anyObject.foo).to.equal(42);
-  }));
+    expect(anyObject.foo).to.equal(42);
+  }));
 });
