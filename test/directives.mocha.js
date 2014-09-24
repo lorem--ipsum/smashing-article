@@ -1,46 +1,54 @@
 describe('directives', function() {
 
-  beforeEach(module('myDirectives'));
+  beforeEach(module('myDirectives'));
 
-  var element;
-  var outerScope;
-  var innerScope;
+  var element;
+  var outerScope;
+  var innerScope;
 
-  beforeEach(inject(function($rootScope, $compile) {
-    element = angular.element('<super-button label="myLabel" on-click="myCallback()"></super-button>');
+  beforeEach(inject(function($rootScope, $compile) {
+    element = angular.element('<super-button label="myLabel" on-click="myCallback()"></super-button>');
 
-    outerScope = $rootScope;
-    $compile(element)(outerScope);
+    outerScope = $rootScope;
+    $compile(element)(outerScope);
 
-    innerScope = element.isolateScope();
+    innerScope = element.isolateScope();
 
-    outerScope.$digest();
-  }));
+    outerScope.$digest();
+  }));
 
-  it('should render the label', function() {
-    outerScope.$apply(function() {
-      outerScope.myLabel = "Hello world.";
-    });
+  describe('label', function() {
+    beforeEach(function() {
+      outerScope.$apply(function() {
+        outerScope.myLabel = "Hello world.";
+      });
+    })
 
-    expect(element[0].children[0].innerHTML).to.equal('Hello world.');
-  });
+    it('should be rendered', function() {
+      expect(element[0].children[0].innerHTML).to.equal('Hello world.');
+    });
+  });
 
-  describe('click callback', function() {
-    var mySpy;
+  describe('click callback', function() {
+    var mySpy;
 
-    beforeEach(function() {
-      mySpy = sinon.spy();
-      outerScope.$apply(function() {
-        outerScope.myCallback = mySpy;
-      });
-    });
+    beforeEach(function() {
+      mySpy = sinon.spy();
+      outerScope.$apply(function() {
+        outerScope.myCallback = mySpy;
+      });
+    });
 
-    it('should be called when the directive is clicked', function() {
-      var event = document.createEvent("MouseEvent");
-      event.initMouseEvent("click", true, true);
-      element[0].children[1].dispatchEvent(event);
+    describe('when the directive is clicked', function() {
+      beforeEach(function() {
+        var event = document.createEvent("MouseEvent");
+        event.initMouseEvent("click", true, true);
+        element[0].children[1].dispatchEvent(event);
+      });
 
-      expect(mySpy.callCount).to.equal(1);
-    });
-  });
+      it('should be called', function() {
+        expect(mySpy.callCount).to.equal(1);
+      });
+    });
+  });
 });

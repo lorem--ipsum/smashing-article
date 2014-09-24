@@ -1,18 +1,25 @@
 describe('factories', function() {
 
-  beforeEach(module('factories'));
+  beforeEach(module('factories'));
 
-  var chimp;
+  var chimp;
+  var $log;
 
-  beforeEach(inject(function(_chimp_, $log) {
-    chimp = _chimp_;
-    sinon.stub($log, 'warn', function() {});
-  }));
+  beforeEach(inject(function(_chimp_, _$log_) {
+    chimp = _chimp_;
+    $log = _$log_;
+    sinon.stub($log, 'warn', function() {});
+  }));
 
-  it('should say Ook', inject(function($log) {
-    chimp.ook();
+  describe('when invoked', function() {
 
-    expect($log.warn.callCount).to.equal(1);
-    expect($log.warn.args[0][0]).to.equal('Ook.');
-  }));
+    beforeEach(function() {
+      chimp.ook();
+    });
+
+    it('should say Ook', function() {
+      expect($log.warn.callCount).to.equal(1);
+      expect($log.warn.args[0][0]).to.equal('Ook.');
+    });
+  });
 });
